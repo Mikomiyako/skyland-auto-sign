@@ -25,4 +25,5 @@ jobs:
           # PASSWORD: ${{ secrets.PASSWORD }}
           TOKEN: ${{ secrets.TOKEN }}
         run: |
+          run: pip install cryptography
           python skyland.py
