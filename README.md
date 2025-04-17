@@ -45,7 +45,7 @@
 - 仓库上方菜单中进入 `Actions` 后没有 `I understand... enable them` 选项或没有左侧的 `auto_sign` 选项
 
 需要将压缩包的内容解压在项目根目录，最终项目首页如图，GitHub Actions 默认从根目录开始运行。
-![项目首页.png](assets/项目首页.png)
+![首页.png](assets/首页.png)
 
 在代码空间中的下方终端输入命令行，将其解压缩，然后将解压后的文件移动到根目录
 
