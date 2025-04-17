@@ -5,7 +5,7 @@
 
 ## 使用Github Action自动运行脚本方法
 
-> 部署————使用 Github Actions 托管
+> 部署———使用 Github Actions 托管
 
 ### 新建仓库
 
@@ -13,7 +13,7 @@
 
 ### 下载并上传源文件
 
-将原仓库的源代码文件全部下载下来，上传到github（`.github`及`.build`等文件夹不支持直接网页上传，建议保留原压缩包直接上传后通过命令行解压，详见文末可能遇到的问题一项）
+将原仓库的源代码文件全部下载下来，上传到 github （ `.github` 及 `.build` 等文件夹不支持直接网页上传，建议保留原压缩包直接上传后通过命令行解压，详见文末可能遇到的问题一项）
 
 ### 获取凭据（二选一，都一样）
 
@@ -25,32 +25,32 @@
 
 在仓库的项目主页上方的菜单中
 
-Settings -> Secrets and variables -> Actions -> New repository secret
+`Settings` -> `Secrets and variables` -> `Actions` -> `New repository secret`
 
-创建名为`TOKEN`的环境变量（注意变量名全大写），并填入上一步获取 content 的值，最后点击`Add secret`（如果要管理多个账号，换行即可）
+创建名为 `TOKEN` 的环境变量（注意变量名全大写），并填入上一步获取 content 的值，最后点击 `Add secret` （如果要管理多个账号，换行即可）
 
 ### 启动 Github Action
 
 > Actions 默认为关闭状态，需要手动执行一次，若成功运行其才会激活。
 
-返回项目主页面，点击上方的`Actions`，再点击左侧的`auto_sign`，再点击`Run workflow`
+返回项目主页面，点击上方的 `Actions` ，再点击左侧的 `auto_sign` ，再点击 `Run workflow`
 
-（如果是第一次使用GitHub Action的话，在仓库上方菜单中进入`Actions`后，点击`I understand... enable them`>`Enable workflow`）
+（如果是第一次使用 GitHub Action 的话，在仓库上方菜单中进入 `Actions` 后，点击 `I understand... enable them`>`Enable workflow`）
 
 至此，部署完毕，之后就可以自动运行签到了。
 
 
 ## 可能遇到的问题
 
-- 仓库上方菜单中进入Actions后没有 I understand... enable them 选项或没有左侧的`auto_sign`
+- 仓库上方菜单中进入 `Actions` 后没有 `I understand... enable them` 选项或没有左侧的 `auto_sign`
 
 需要将压缩包的内容在项目根目录及下图文件需在同一层级，GitHub Actions 默认从根目录开始运行。
 
 在代码空间中的下方终端输入命令行，将其解压缩，然后将解压后的文件移动到根目录
 
-- 原项目Action运行错误
+- 原项目 `Actions` 运行错误
 
-原项目在`.github`文件夹中的 `auto_sign.yaml` 文件里并没有调用 `requirements.txt`，而是写死了：
+原项目在 `.github` 文件夹中的 `auto_sign.yaml` 文件里并没有调用 `requirements.txt`，而是写死了：
 
   ```json{
 pip install requests
@@ -58,7 +58,7 @@ pip install requests
 
 所以导致编译时忽略了 `requirements.txt` 里的 cryptography。
 
-因此需要将auto_sign.yaml文件里的
+因此需要将 `auto_sign.yaml` 文件里的
 
   ```json{
 - name: Install dependencies
@@ -76,11 +76,11 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
   ```
 
-- 使用浏览器登录多个账号获得TOKEN时要注意的问题
+- 使用浏览器登录多个账号获得 TOKEN 时要注意的问题
 
 **不要去登出账号，否则鹰角网络通行证会失效！**
 
-如果要添加多个账号，请删除浏览器缓存。或者使用浏览器自带的隐私浏览模式，拿到Token后，关闭隐私窗口，再登录一次即可！
+如果要添加多个账号，请删除浏览器缓存。或者使用浏览器自带的隐私浏览模式，拿到 Token 后，关闭隐私窗口，再登录一次即可！
 ![img_20.png](assets/img_20.png)
 ![img_21.png](assets/img_21.png)
 
@@ -97,7 +97,7 @@ pip install -r requirements.txt
 
 - 鹰角解除了方舟每日签到的风控，换来的是登岛检票的接口被风控，可喜可贺可喜可贺，所以本项目准备就不提供登岛检票功能了
 
-- Github Actions 会对60天没有活动的仓库自动禁用，可能要主动关注一下 github actions 的运行情况（一般会发邮件通知 actions 执行失败）
+- Github Actions 会对 60 天没有活动的仓库自动禁用，可能要主动关注一下 github actions 的运行情况（一般会发邮件通知 actions 执行失败）
 
 - Github Actions 产生的费用
 
