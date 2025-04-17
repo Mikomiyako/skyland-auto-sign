@@ -18,7 +18,7 @@
 
 >登录 [森空岛网页版](https://www.skland.com/) 后，打开 https://web-api.skland.com/account/info/hg 记下 content 字段的值（即引号里的值）
 
->登录 [鹰角网络通行证](https://user.hypergryph.com/login) 后打开 https://web-api.hypergryph.com/account/info/hg 记下 content 字段的值（即引号里的值）
+>登录 [鹰角网络通行证](https://user.hypergryph.com/login) 后，打开 https://web-api.hypergryph.com/account/info/hg 记下 content 字段的值（同上）
 
 ### 添加 Cookie 至 Secrets
 
