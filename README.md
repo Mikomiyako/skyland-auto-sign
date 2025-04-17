@@ -1,10 +1,11 @@
-# skyland-auto-sign
+# Skyland-Auto-Sign
 
-明日方舟森空岛一键签到脚本，基于python
+[明日方舟森空岛一键签到脚本，基于python](https://gitee.com/FancyCabbage/skyland-auto-sign#mode3)
+
 
 ## 使用Github Action自动运行脚本方法
 
-> 部署————使用Github Actions托管
+> 部署————使用 Github Actions 托管
 
 ### 新建仓库
 
@@ -12,7 +13,7 @@
 
 ### 下载并上传源文件
 
-将原仓库的源代码文件全部下载下来，上传到github（.github及.build等文件夹不支持直接网页上传，建议保留原压缩包直接上传后通过命令行解压，详见文末可能遇到的问题一项）
+将原仓库的源代码文件全部下载下来，上传到github（`.github`及`.build`等文件夹不支持直接网页上传，建议保留原压缩包直接上传后通过命令行解压，详见文末可能遇到的问题一项）
 
 ### 获取凭据（二选一，都一样）
 
@@ -26,7 +27,7 @@
 
 Settings -> Secrets and variables -> Actions -> New repository secret
 
-创建名为`TOKEN`的环境变量（注意变量名全大写），并填入上一步获取 content 的值，最后点击 Add secret（如果要管理多个账号，换行即可）
+创建名为`TOKEN`的环境变量（注意变量名全大写），并填入上一步获取 content 的值，最后点击`Add secret`（如果要管理多个账号，换行即可）
 
 ### 启动 Github Action
 
@@ -34,15 +35,10 @@ Settings -> Secrets and variables -> Actions -> New repository secret
 
 返回项目主页面，点击上方的`Actions`，再点击左侧的`auto_sign`，再点击`Run workflow`
 
-（如果是第一次使用GitHub Action的话，在仓库上方菜单中进入Actions后，点击 I understand... enable them > Enable workflow）
+（如果是第一次使用GitHub Action的话，在仓库上方菜单中进入`Actions`后，点击`I understand... enable them`>`Enable workflow`）
 
 至此，部署完毕，之后就可以自动运行签到了。
 
-<a name="mode3"></a>
-
-<a name="multiple_account"></a>
-
-<a name="multiple_account"></a>
 
 ## 可能遇到的问题
 
@@ -54,13 +50,13 @@ Settings -> Secrets and variables -> Actions -> New repository secret
 
 - 原项目Action运行错误
 
-原项目在.github文件夹中的 auto_sign.yaml 文件里并没有调用 requirements.txt，而是写死了：
+原项目在`.github`文件夹中的 `auto_sign.yaml` 文件里并没有调用 `requirements.txt`，而是写死了：
 
   ```json{
 pip install requests
   ```
 
-所以导致编译时忽略了 requirements.txt 里的 cryptography。
+所以导致编译时忽略了 `requirements.txt` 里的 cryptography。
 
 因此需要将auto_sign.yaml文件里的
 
