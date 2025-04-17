@@ -2,12 +2,9 @@
 
 明日方舟森空岛一键签到脚本，基于python
 
-部署
-
-> 使用Github Actions托管
-
-
 ## 使用Github Action自动运行脚本方法
+
+> 部署————使用Github Actions托管
 
 ### 新建仓库
 
@@ -36,6 +33,7 @@ Settings -> Secrets and variables -> Actions -> New repository secret
 > Actions 默认为关闭状态，需要手动执行一次，若成功运行其才会激活。
 
 返回项目主页面，点击上方的`Actions`，再点击左侧的`auto_sign`，再点击`Run workflow`
+
 （如果是第一次使用GitHub Action的话，在仓库上方菜单中进入Actions后，点击 I understand... enable them > Enable workflow）
 
 至此，部署完毕，之后就可以自动运行签到了。
@@ -45,24 +43,6 @@ Settings -> Secrets and variables -> Actions -> New repository secret
 <a name="multiple_account"></a>
 
 <a name="multiple_account"></a>
-
-
-
-
-## 注意事项
-
-- 鹰角解除了方舟每日签到的风控，换来的是登岛检票的接口被风控，可喜可贺可喜可贺，所以本项目准备就不提供登岛检票功能了
-
-- Github Actions 会对60天没有活动的仓库自动禁用，可能要主动关注一下 github actions 的运行情况（一般会发邮件通知 actions 执行失败）
-
-- Github Actions 产生的费用
-
-**下方估算仅供参考，不对任何可能的损失负责，具体标准请自行查阅！**
-  - 如果仓库是公开的（public）：
-GitHub 会对公开仓库提供完全免费的 GitHub Actions 使用时间，不限分钟数（但有每月 50,000 次请求的软限制）。
-  - 如果仓库是私有的（private）：
-GitHub 只提供每月一定的免费分钟数（2,000 分钟，大概相当于 $16 折扣额度），超过就要按量付费（仅运行本项目的情况下大概 0.01$/天）。
-
 
 ## 可能遇到的问题
 
@@ -115,10 +95,26 @@ pip install -r requirements.txt
 最后就是别手贱去点客户端里的清理会话，因为那样子会把所有的登录状态清空
 
 
+## 注意事项
+
+**下方相关数据仅为估算，仅可供参考，不对任何可能的损失负责，具体标准请自行查阅！**
+
+- 鹰角解除了方舟每日签到的风控，换来的是登岛检票的接口被风控，可喜可贺可喜可贺，所以本项目准备就不提供登岛检票功能了
+
+- Github Actions 会对60天没有活动的仓库自动禁用，可能要主动关注一下 github actions 的运行情况（一般会发邮件通知 actions 执行失败）
+
+- Github Actions 产生的费用
+
+  - 如果仓库是公开的（public）：
+GitHub 会对公开仓库提供完全免费的 GitHub Actions 使用时间，不限分钟数（但有每月 50,000 次请求的软限制）。
+  - 如果仓库是私有的（private）：
+GitHub 只提供每月一定的免费分钟数（2,000 分钟，大概相当于 $16 折扣额度），超过就要按量付费（仅运行本项目的情况下大概 0.01$/天）。
 
 
+## README编写参考
 
-README编写参考
-[https://gitee.com/FancyCabbage/skyland-auto-sign#mode3]https://gitee.com/FancyCabbage/skyland-auto-sign#mode3
-【森空岛签到skland-daily-attendance】https://github.com/enpitsuLin/skland-daily-attendance/blob/main/README.md
-【文档-查看 GitHub Actions 使用情况】https://docs.github.com/zh/billing/managing-billing-for-your-products/managing-billing-for-github-actions/viewing-your-github-actions-usage
+[森空岛一键签到skyland-auto-sign](https://gitee.com/FancyCabbage/skyland-auto-sign#mode3)
+
+[森空岛签到skland-daily-attendance](https://github.com/enpitsuLin/skland-daily-attendance/blob/main/README.md)
+
+[文档-查看 GitHub Actions 使用情况](https://docs.github.com/zh/billing/managing-billing-for-your-products/managing-billing-for-github-actions/viewing-your-github-actions-usage)
