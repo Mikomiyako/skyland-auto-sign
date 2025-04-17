@@ -79,11 +79,11 @@ pip install requests
 run: |
 python -m pip install --upgrade pip
 pip install requests
-  }```
+  ```
 
 改为：
 
-  ```json
+  ```json{
 - name: Install dependencies
 run: |
 python -m pip install --upgrade pip
