@@ -3,6 +3,7 @@
 明日方舟森空岛一键签到脚本，基于python
 
 部署
+
 > 使用Github Actions托管
 
 
@@ -48,29 +49,40 @@ Settings -> Secrets and variables -> Actions -> New repository secret
 
 
 
-## 部分事项
+## 注意事项
 
 - 鹰角解除了方舟每日签到的风控，换来的是登岛检票的接口被风控，可喜可贺可喜可贺，所以本项目准备就不提供登岛检票功能了
+
 - Github Actions 会对60天没有活动的仓库自动禁用，可能要主动关注一下 github actions 的运行情况（一般会发邮件通知 actions 执行失败）
+
 - Github Actions 产生的费用
+
+**下方估算仅供参考，不对任何可能的损失负责，具体标准请自行查阅！**
   - 如果仓库是公开的（public）：
 GitHub 会对公开仓库提供完全免费的 GitHub Actions 使用时间，不限分钟数（但有每月 50,000 次请求的软限制）。
   - 如果仓库是私有的（private）：
-GitHub 只提供每月一定的免费分钟数（2,000 分钟，大概相当于 $16 折扣额度），超过就要按量付费（仅本项目的情况下 0.01$/天）。
+GitHub 只提供每月一定的免费分钟数（2,000 分钟，大概相当于 $16 折扣额度），超过就要按量付费（仅运行本项目的情况下大概 0.01$/天）。
 
 
-# 可能遇到的问题
+## 可能遇到的问题
 
 - 仓库上方菜单中进入Actions后没有 I understand... enable them 选项或没有左侧的`auto_sign`
+
 需要将压缩包的内容在项目根目录及下图文件需在同一层级，GitHub Actions 默认从根目录开始运行。
+
 在代码空间中的下方终端输入命令行，将其解压缩，然后将解压后的文件移动到根目录
 
 - 原项目Action运行错误
-原项目在.github文件夹中的auto_sign.yaml文件里并没有调用 requirements.txt，而是手动写死了：
+
+原项目在.github文件夹中的 auto_sign.yaml 文件里并没有调用 requirements.txt，而是写死了：
+
+  ```json{
 pip install requests
+  ```
+
 所以导致编译时忽略了 requirements.txt 里的 cryptography。
 
-将auto_sign.yaml文件里的
+因此需要将auto_sign.yaml文件里的
 
   ```json{
 - name: Install dependencies
@@ -79,7 +91,7 @@ python -m pip install --upgrade pip
 pip install requests
   ```
 
-改为：
+修正为：
 
   ```json{
 - name: Install dependencies
@@ -88,7 +100,7 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
   ```
 
-## 使用浏览器登录多个账号获得TOKEN时要注意的问题
+- 使用浏览器登录多个账号获得TOKEN时要注意的问题
 
 **不要去登出账号，否则鹰角网络通行证会失效！**
 
@@ -96,7 +108,7 @@ pip install -r requirements.txt
 ![img_20.png](assets/img_20.png)
 ![img_21.png](assets/img_21.png)
 
-## 多端登录的问题
+- 多端登录的问题
 
 同一账号多端登录是没问题的，但是要注意一点就是电脑在用密码登录后，手机客户端有可能会被挤掉
 
