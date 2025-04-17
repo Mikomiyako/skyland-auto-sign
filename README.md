@@ -119,5 +119,6 @@ pip install -r requirements.txt
 
 
 README编写参考
+[https://gitee.com/FancyCabbage/skyland-auto-sign#mode3]https://gitee.com/FancyCabbage/skyland-auto-sign#mode3
 【森空岛签到skland-daily-attendance】https://github.com/enpitsuLin/skland-daily-attendance/blob/main/README.md
 【文档-查看 GitHub Actions 使用情况】https://docs.github.com/zh/billing/managing-billing-for-your-products/managing-billing-for-github-actions/viewing-your-github-actions-usage
