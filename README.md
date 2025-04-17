@@ -42,9 +42,9 @@
 
 ## 二、可能遇到的问题
 
-- 仓库上方菜单中进入 `Actions` 后没有 `I understand... enable them` 选项或没有左侧的 `auto_sign`
+- 仓库上方菜单中进入 `Actions` 后没有 `I understand... enable them` 选项或没有左侧的 `auto_sign`选项
 
-需要将压缩包的内容在项目根目录及下图文件需在同一层级，GitHub Actions 默认从根目录开始运行。
+需要将压缩包的内容在项目根目录即下图的文件及文件夹需在同一层级，GitHub Actions 默认从根目录开始运行。
 
 在代码空间中的下方终端输入命令行，将其解压缩，然后将解压后的文件移动到根目录
 
