@@ -61,13 +61,11 @@ GitHub 只提供每月一定的免费分钟数（2,000 分钟，大概相当于 
 
 # 可能遇到的问题
 
-## 仓库上方菜单中进入Actions后没有 I understand... enable them 选项或没有左侧的`auto_sign`
-
+- 仓库上方菜单中进入Actions后没有 I understand... enable them 选项或没有左侧的`auto_sign`
 需要将压缩包的内容在项目根目录及下图文件需在同一层级，GitHub Actions 默认从根目录开始运行。
-
 在代码空间中的下方终端输入命令行，将其解压缩，然后将解压后的文件移动到根目录
 
-## 原项目Action运行错误
+- 原项目Action运行错误
 原项目在.github文件夹中的auto_sign.yaml文件里并没有调用 requirements.txt，而是手动写死了：
 pip install requests
 所以导致编译时忽略了 requirements.txt 里的 cryptography。
