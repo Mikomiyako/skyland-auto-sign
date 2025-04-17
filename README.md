@@ -48,11 +48,11 @@ Settings -> Secrets and variables -> Actions -> New repository secret
 
 
 
-# 部分事项
+## 部分事项
 
-## 鹰角解除了方舟每日签到的风控，换来的是登岛检票的接口被风控，可喜可贺可喜可贺，所以本项目准备就不提供登岛检票功能了
-## Github Actions 会对60天没有活动的仓库自动禁用，可能要主动关注一下 github actions 的运行情况（一般会发邮件通知 actions 执行失败）
-## Github Actions 产生的费用
+- 鹰角解除了方舟每日签到的风控，换来的是登岛检票的接口被风控，可喜可贺可喜可贺，所以本项目准备就不提供登岛检票功能了
+- Github Actions 会对60天没有活动的仓库自动禁用，可能要主动关注一下 github actions 的运行情况（一般会发邮件通知 actions 执行失败）
+- Github Actions 产生的费用
 > 如果仓库是公开的（public）：
 GitHub 会对公开仓库提供完全免费的 GitHub Actions 使用时间，不限分钟数（但有每月 50,000 次请求的软限制）。
 > 如果仓库是私有的（private）：
