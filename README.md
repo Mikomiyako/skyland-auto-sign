@@ -74,12 +74,12 @@ pip install requests
 
 将auto_sign.yaml文件里的
 
-  ```json
+  ```json{
 - name: Install dependencies
 run: |
 python -m pip install --upgrade pip
 pip install requests
-  ```
+  }```
 
 改为：
 
