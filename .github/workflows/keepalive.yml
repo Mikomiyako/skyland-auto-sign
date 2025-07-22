@@ -2,7 +2,8 @@ name: Auto Keepalive Commit
 
 on:
   schedule:
-    - cron: '0 0 1 * *'  # 每月1号0点执行，也可以改成每天执行
+    - cron: '0 0 1 * *'  # 每月1号0点执行，可根据需要修改
+  workflow_dispatch:      # 支持手动触发，方便首次激活或紧急运行
 
 jobs:
   keepalive:
@@ -12,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
-          persist-credentials: false  # 下面用自己的token推送
+          persist-credentials: false
 
       - name: Set up Git user
         run: |
@@ -30,5 +31,4 @@ jobs:
             git push origin HEAD:main
           fi
         env:
-          # 需要先在仓库设置 secrets.GITHUB_TOKEN，通常自动提供
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
