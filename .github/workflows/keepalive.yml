@@ -1,13 +1,34 @@
-name: Keep Repository Alive
+name: Auto Keepalive Commit
 
 on:
   schedule:
-    - cron: '0 0 1 * *'     # ÿ��1�� UTC 0��ִ��
-  workflow_dispatch:
+    - cron: '0 0 1 * *'  # 每月1号0点执行，也可以改成每天执行
 
 jobs:
   keepalive:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Do nothing
-        run: echo "Keeping the repo active"
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # 下面用自己的token推送
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Update keepalive file
+        run: |
+          echo "Last keepalive: $(date -u)" > .github/last_alive.txt
+          git add .github/last_alive.txt
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Keepalive update $(date -u)"
+            git push origin HEAD:main
+          fi
+        env:
+          # 需要先在仓库设置 secrets.GITHUB_TOKEN，通常自动提供
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
