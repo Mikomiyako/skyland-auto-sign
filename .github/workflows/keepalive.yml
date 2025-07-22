@@ -23,7 +23,7 @@ jobs:
       - name: Update keepalive file
         run: |
           echo "Last keepalive: $(date -u)" > .github/workflows/last_alive.txt
-          git add .github/last_alive.txt
+          git add .github/workflows/last_alive.txt
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
