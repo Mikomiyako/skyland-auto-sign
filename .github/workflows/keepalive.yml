@@ -2,8 +2,8 @@ name: Auto Keepalive Commit
 
 on:
   schedule:
-    - cron: '0 0 1 * *'  # 每月1号0点执行，可根据需要修改
-  workflow_dispatch:      # 支持手动触发，方便首次激活或紧急运行
+    - cron: '0 0 1 * *'  # 每月1号 UTC 0点执行
+  workflow_dispatch:
 
 jobs:
   keepalive:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
-          persist-credentials: true
+          persist-credentials: true  # 允许 push
 
       - name: Set up Git user
         run: |
@@ -22,13 +22,10 @@ jobs:
 
       - name: Update keepalive file
         run: |
-          echo "Last keepalive: $(date -u)" > .github/workflows/last_alive.txt
-          git add .github/workflows/last_alive.txt
+          echo "Last keepalive: $(date -u)" > .github/keepalive.txt
+          git add .github/keepalive.txt
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "Keepalive update $(date -u)"
-            git push origin HEAD:main
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            git push
