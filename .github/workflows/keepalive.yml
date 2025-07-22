@@ -2,7 +2,7 @@ name: Auto Keepalive Commit
 
 on:
   schedule:
-    - cron: '0 0 1 * *'  # 每月1号 UTC 0点执行
+    - cron: '0 0 1 * *'
   workflow_dispatch:
 
 jobs:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
-          persist-credentials: true  # ✅ 允许 push
+          persist-credentials: true
 
       - name: Set up Git user
         run: |
